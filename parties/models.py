@@ -13,14 +13,6 @@ class Party(models.Model):
 		return self.name+' ('+self.logo+')'
 
 class Votebank(models.Model):
-	# parties = Party.objects.all()
-	# PARTY_CHOICES = []
-
-	# for party in parties:
-	# 	PARTY_CHOICES.append((party.name, party.name))
-
-	# PARTY_CHOICES = tuple(PARTY_CHOICES)
-
 	party = models.ForeignKey('Party', on_delete=models.CASCADE, related_name='vote')
 	user = models.ForeignKey('users.Users', on_delete=models.CASCADE, related_name='user')
 	created_at = models.DateTimeField(auto_now_add=True)
